@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="sign_in">Sign In to Continue</string>
+    <string name="approval">I hereby that I read and accept conditions</string>
+    <string name="next">Next</string>
+    <string name="rus">Rus</string>
+    <string name="eng">Eng</string>
+    <string name="sign_up">Sign up to continue</string>
+    <string name="balance">Balance</string>
+    <string name="cards">Attached cards</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FinalProskillsProject</string>
+    <string name="login">Логин</string>
+    <string name="forgot_password">Забыли пароль</string>
+    <string name="sign_in">Авторизуйтесь для Продолжения</string>
+    <string name="password">Пароль</string>
+    <string name="approval">Я внимательно прочитал и согласен(а) с указанными условиями</string>
+    <string name="next">Next</string>
+    <string name="rus">Rus</string>
+    <string name="eng">Eng</string>
+    <string name="sign_up">Sign up to continue</string>
+    <string name="balance">Balance</string>
+    <string name="cards">Attached cards</string>
+</resources>
