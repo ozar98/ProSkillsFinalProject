@@ -73,17 +73,38 @@
                 android:id="@+id/text_cards"
                 android:text="@string/cards"/>
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cards_rv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/text_cards"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
                 android:orientation="horizontal"
+                tool:listitem="@layout/cards_rv"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/cards_rv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:id="@+id/history_text"
+                android:textSize="24dp"
+                android:textColor="@color/black"
+                android:text="@string/history"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/history_rv"
+                android:background="@drawable/round_shape"
+                tool:listitem="@layout/history_rv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/history_text"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

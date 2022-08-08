@@ -10,4 +10,10 @@
     <string name="sign_up">Sign up to continue</string>
     <string name="balance">Balance</string>
     <string name="cards">Attached cards</string>
+    <string name="history">History</string>
+    <string name="transaction">Transaction from</string>
+    <string name="fullName">Ozar Aini</string>
+    <string name="personal_info">Personal Info</string>
+    <string name="qr_text">QR Code</string>
+    <string name="version">Version</string>
 </resources>
