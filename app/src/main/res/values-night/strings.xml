@@ -17,4 +17,10 @@
     <string name="qr_text">QR Code</string>
     <string name="version">Version</string>
     <string name="transaction_history">Transaction History</string>
+    <string name="change_profile">Change Profile Information</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="change_birth">Change Birth Date</string>
+    <string name="apply_changes">Apply Changes</string>
+    <string name="register">Register</string>
 </resources>

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.finalproskillsproject.databinding.LoginFragmentBinding
 
 class FragmentLogin: Fragment() {
@@ -16,11 +17,14 @@ class FragmentLogin: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+        _binding=LoginFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        changeFragmentListener()
+
     }
 
     override fun onStart() {
@@ -46,5 +50,17 @@ class FragmentLogin: Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+    }
+    private fun userAuthentication(){
+
+    }
+    private fun changeFragmentListener(){
+        binding.loginButton.setOnClickListener {
+            userAuthentication()
+            findNavController().navigate(R.id.fragmentMainPage)
+        }
+        binding.register.setOnClickListener {
+            findNavController().navigate(R.id.fragmentRegistration)
+        }
     }
 }

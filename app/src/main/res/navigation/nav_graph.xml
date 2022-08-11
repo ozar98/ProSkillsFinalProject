@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentLogin">
+    <fragment
+        android:id="@+id/fragmentLogin"
+        android:name="com.example.finalproskillsproject.FragmentLogin"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_fragmentLogin_to_fragmentRegistration"
+            app:destination="@id/fragmentRegistration" />
+        <action
+            android:id="@+id/action_fragmentLogin_to_fragmentMainPage"
+            app:destination="@id/fragmentMainPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentRegistration"
+        android:name="com.example.finalproskillsproject.FragmentRegistration"
+        android:label="registration_fragment"
+        tools:layout="@layout/registration_fragment" >
+        <action
+            android:id="@+id/action_fragmentRegistration_to_fragmentMainPage"
+            app:destination="@id/fragmentMainPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentMainPage"
+        android:name="com.example.finalproskillsproject.FragmentMainPage"
+        android:label="main_menu_fragment"
+        tools:layout="@layout/main_menu_fragment" >
+        <action
+            android:id="@+id/action_fragmentMainPage_to_fragmentsHistory"
+            app:destination="@id/fragmentsHistory" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentsHistory"
+        android:name="com.example.finalproskillsproject.FragmentsHistory"
+        android:label="history_fragment"
+        tools:layout="@layout/history_fragment" >
+        <action
+            android:id="@+id/action_fragmentsHistory_to_fragmentSettings"
+            app:destination="@id/fragmentSettings" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSettings"
+        android:name="com.example.finalproskillsproject.FragmentSettings"
+        android:label="settings_fragment"
+        tools:layout="@layout/settings_fragment" >
+        <action
+            android:id="@+id/action_fragmentSettings_to_fragmentLogin"
+            app:destination="@id/fragmentLogin" />
+        <action
+            android:id="@+id/action_fragmentSettings_to_changeProfileFragment"
+            app:destination="@id/changeProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeProfileFragment"
+        android:name="com.example.finalproskillsproject.ChangeProfileFragment"
+        android:label="change_profile_info_fragment"
+        tools:layout="@layout/change_profile_info_fragment" />
+</navigation>

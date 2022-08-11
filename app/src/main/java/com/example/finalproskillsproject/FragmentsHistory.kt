@@ -5,11 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.finalproskillsproject.databinding.RegistrationFragmentBinding
+import com.example.finalproskillsproject.databinding.HistoryFragmentBinding
 
-class FragmentRegistration: Fragment() {
-    private var _binding: RegistrationFragmentBinding? = null
+class FragmentsHistory: Fragment() {
+    private var _binding: HistoryFragmentBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,14 +16,11 @@ class FragmentRegistration: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding=RegistrationFragmentBinding.inflate(inflater, container,false)
-        return binding.root
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        onButtonsClickedListener()
-
     }
 
     override fun onStart() {
@@ -50,19 +46,5 @@ class FragmentRegistration: Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-    }
-    private fun onButtonsClickedListener(){
-        binding.registrationNext.setOnClickListener {
-            findNavController().navigate(R.id.fragmentMainPage)
-        }
-        binding.english.setOnClickListener {
-            TODO()
-        }
-        binding.russian.setOnClickListener {
-            TODO()
-        }
-        binding.datePicker.setOnClickListener {
-            TODO()
-        }
     }
 }
