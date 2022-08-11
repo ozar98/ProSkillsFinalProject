@@ -10,27 +10,35 @@
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_account_box.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_add.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_attach.xml" value="0.158" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_back.xml" value="0.169" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_contacts.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_edit.xml" value="0.158" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_help.xml" value="0.169" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_icon_mastercard_logo.xml" value="0.169" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_language.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_lock.xml" value="0.158" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_log_out.xml" value="0.169" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_logout.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_manage_history.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_notifications.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_payments.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_person.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_priority_high.xml" value="0.158" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_qr.xml" value="0.169" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_schedule.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_settings.xml" value="0.158" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_version.xml" value="0.169" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_wallet.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/round_shape.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/cards_rv.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/history_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/history_rv.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/login_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/main_menu_fragment.xml" value="0.253125" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/registration_fragment.xml" value="0.253125" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/settings_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/settings_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/menu/bottom_menu.xml" value="0.18984375" />
       </map>

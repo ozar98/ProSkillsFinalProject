@@ -16,4 +16,5 @@
     <string name="personal_info">Personal Info</string>
     <string name="qr_text">QR Code</string>
     <string name="version">Version</string>
+    <string name="transaction_history">Transaction History</string>
 </resources>

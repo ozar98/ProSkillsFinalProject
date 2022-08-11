@@ -39,5 +39,5 @@ data class Person(
 @Dao
 interface MyDao{
     @Query ("SELECT * FROM Person WHERE id=:id")
-    fun getLoggedUser(id:Int)
+    fun getLoggedUser(id:Int):Person
 }
