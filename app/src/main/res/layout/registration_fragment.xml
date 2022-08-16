@@ -59,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/registration_password"
                 android:hint="@string/password"
+                android:inputType="textPassword"
                 android:background="@drawable/round_shape"
                 app:layout_constraintTop_toBottomOf="@+id/registration_surname_entry"
                 android:layout_marginTop="40dp"
@@ -84,6 +85,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/birthDate_text"
+                app:layout_constraintStart_toEndOf="@+id/date_picker"
+                app:layout_constraintTop_toBottomOf="@id/registration_phone_entry"
+                android:layout_marginTop="24dp"
+                android:textSize="16sp"
+                tools:text="123"
+                android:textColor="@color/black"
+                android:layout_marginStart="32dp"/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

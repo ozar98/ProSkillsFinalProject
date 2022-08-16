@@ -3,15 +3,15 @@
 
 
     <item
-        android:id="@+id/main_fragment"
+        android:id="@+id/fragmentMainPage"
         android:icon="@drawable/ic_home"
         android:title=""/>
     <item
-        android:id="@+id/history_fragment"
+        android:id="@+id/fragmentsHistory"
         android:icon="@drawable/ic_history"
         android:title=""/>
     <item
-        android:id="@+id/settings_fragment"
+        android:id="@+id/fragmentSettings"
         android:icon="@drawable/ic_settings"
         android:title=""/>
 </menu>

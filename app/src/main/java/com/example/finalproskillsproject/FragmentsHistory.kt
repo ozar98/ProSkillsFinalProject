@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.finalproskillsproject.databinding.HistoryFragmentBinding
+import com.example.finalproskillsproject.databinding.RegistrationFragmentBinding
 
 class FragmentsHistory: Fragment() {
     private var _binding: HistoryFragmentBinding? = null
@@ -16,7 +17,8 @@ class FragmentsHistory: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+        _binding= HistoryFragmentBinding.inflate(inflater, container,false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -1,12 +1,16 @@
 package com.example.finalproskillsproject
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.finalproskillsproject.databinding.LoginFragmentBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class FragmentLogin: Fragment() {
     private var _binding: LoginFragmentBinding? = null
@@ -63,4 +67,7 @@ class FragmentLogin: Fragment() {
             findNavController().navigate(R.id.fragmentRegistration)
         }
     }
+
+
+
 }

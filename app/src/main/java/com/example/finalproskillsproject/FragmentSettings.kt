@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.finalproskillsproject.databinding.RegistrationFragmentBinding
 import com.example.finalproskillsproject.databinding.SettingsFragmentBinding
 
 class FragmentSettings: Fragment() {
@@ -16,7 +17,8 @@ class FragmentSettings: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+        _binding= SettingsFragmentBinding.inflate(inflater, container,false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

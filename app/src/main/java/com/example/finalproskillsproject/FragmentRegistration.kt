@@ -1,16 +1,27 @@
 package com.example.finalproskillsproject
 
+import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.finalproskillsproject.databinding.RegistrationFragmentBinding
+import java.util.*
 
 class FragmentRegistration: Fragment() {
     private var _binding: RegistrationFragmentBinding? = null
     private val binding get() = _binding!!
+    private lateinit var viewModel:RegistrationViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this)[RegistrationViewModel::class.java]
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,6 +34,7 @@ class FragmentRegistration: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        getUserInfo()
         onButtonsClickedListener()
 
     }
@@ -51,6 +63,14 @@ class FragmentRegistration: Fragment() {
     override fun onDestroy() {
         super.onDestroy()
     }
+
+    private fun getUserInfo(){
+        val name=binding.registrationNameEntry.text.toString()
+        val surname=binding.registrationSurnameEntry.text.toString()
+        val password=binding.registrationPassword.text.toString()
+        val phone=binding.registrationPhoneEntry.text.toString()
+        val birthDate=binding.birthDateText.text.toString()
+    }
     private fun onButtonsClickedListener(){
         binding.registrationNext.setOnClickListener {
             findNavController().navigate(R.id.fragmentMainPage)
@@ -62,7 +82,21 @@ class FragmentRegistration: Fragment() {
             TODO()
         }
         binding.datePicker.setOnClickListener {
-            TODO()
+            getBirthDate()
         }
+    }
+    @SuppressLint("RestrictedApi")
+    private fun getBirthDate(){
+        val calendar = Calendar.getInstance()
+        DatePickerDialog(
+            requireContext(),
+            { _, year, month, day ->
+                binding.birthDateText.text =viewModel.getBirthDate(year,month,day)
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        ).show()
+
     }
 }

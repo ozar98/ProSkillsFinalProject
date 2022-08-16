@@ -23,4 +23,15 @@
     <string name="change_birth">Change Birth Date</string>
     <string name="apply_changes">Apply Changes</string>
     <string name="register">Register</string>
+    <string name="amount_entry">Amount</string>
+    <string name="send_to">Send to</string>
+    <string name="send">Send</string>
+    <string name="number">+992</string>
+    <string name="To_wallet">To wallet</string>
+    <string name="addcard">Add Card</string>
+    <string name="card_type">Please choose card type</string>
+    <string name="card_name_text">Full Name on Card</string>
+    <string name="email">Email</string>
+    <string name="card_number">Card Number</string>
+    <string name="valid">Valid to</string>
 </resources>
