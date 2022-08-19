@@ -13,28 +13,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/wave"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/back"
+        android:background="?attr/selectableItemBackground"
+        android:src="@drawable/ic_back_white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         android:text="@string/transaction_text"
+        android:textColor="@color/black"
         android:layout_marginStart="16dp"
-        android:textSize="16sp"
+        android:textSize="24sp"
         android:textStyle="bold"
+        android:id="@+id/transaction_text"
         app:layout_constraintTop_toBottomOf="@id/wave"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/amount_entry"
         android:hint="@string/amount_entry"
-        android:layout_marginTop="16dp"
+        android:background="@drawable/round_shape"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:paddingStart="8dp"
+        android:paddingVertical="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/wave"/>
+        app:layout_constraintTop_toBottomOf="@id/transaction_text"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/send_to"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
         android:id="@+id/send_to_text"
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,13 +66,22 @@
         app:layout_constraintTop_toBottomOf="@+id/send_to_text"
         app:layout_constraintStart_toStartOf="parent"
         android:text="@string/number"
+        android:background="@drawable/round_shape"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="16dp"
+        android:paddingStart="8dp"
+        android:paddingVertical="4dp"
+        android:layout_marginTop="16dp"
         android:id="@+id/send_to_entry"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/submit"
+        android:layout_marginTop="32dp"
         android:text="@string/send"
         app:layout_constraintTop_toBottomOf="@id/send_to_entry"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

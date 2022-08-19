@@ -14,6 +14,7 @@
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_add_circle.xml" value="0.164" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_attach.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_back.xml" value="0.169" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_back_white.xml" value="0.161" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_contacts.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_edit.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_help.xml" value="0.169" />
@@ -36,7 +37,9 @@
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/round_shape.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/add_card_fragment.xml" value="0.253125" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/balance_increase_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/cards_rv.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/cashback_rv.xml" value="0.253125" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/change_profile_info_fragment.xml" value="0.264" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/history_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/history_rv.xml" value="0.25416666666666665" />

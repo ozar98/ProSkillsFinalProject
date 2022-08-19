@@ -39,6 +39,18 @@
         <action
             android:id="@+id/action_fragmentMainPage_to_fragmentTransaction"
             app:destination="@id/fragmentTransaction" />
+        <action
+            android:id="@+id/action_fragmentMainPage_to_fragmentAddCard"
+            app:destination="@id/fragmentAddCard" />
+        <action
+            android:id="@+id/action_fragmentMainPage_to_fragmentAddCard2"
+            app:destination="@id/fragmentAddCard" />
+        <action
+            android:id="@+id/action_fragmentMainPage_to_fragmentAddCard3"
+            app:destination="@id/fragmentAddCard" />
+        <action
+            android:id="@+id/action_fragmentMainPage_to_fragmentBalanceIncrease"
+            app:destination="@id/fragmentBalanceIncrease" />
     </fragment>
     <fragment
         android:id="@+id/fragmentsHistory"
@@ -82,6 +94,27 @@
         tools:layout="@layout/transaction_fragment" >
         <action
             android:id="@+id/action_fragmentTransaction_to_fragmentMainPage"
+            app:destination="@id/fragmentMainPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAddCard"
+        android:name="com.example.finalproskillsproject.FragmentAddCard"
+        android:label="add_card_fragment"
+        tools:layout="@layout/add_card_fragment" >
+        <action
+            android:id="@+id/action_fragmentAddCard_to_fragmentMainPage"
+            app:destination="@id/fragmentMainPage" />
+        <action
+            android:id="@+id/action_fragmentAddCard_to_fragmentMainPage2"
+            app:destination="@id/fragmentMainPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentBalanceIncrease"
+        android:name="com.example.finalproskillsproject.FragmentBalanceIncrease"
+        android:label="balance_increase_fragment"
+        tools:layout="@layout/balance_increase_fragment" >
+        <action
+            android:id="@+id/action_fragmentBalanceIncrease_to_fragmentMainPage"
             app:destination="@id/fragmentMainPage" />
     </fragment>
 </navigation>

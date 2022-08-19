@@ -36,4 +36,6 @@
     <string name="email">Email</string>
     <string name="card_number">Card Number</string>
     <string name="valid">Valid to</string>
+    <string name="card_replenish">Replenish balance by card</string>
+    <string name="Cashbacks">Cashbacks</string>
 </resources>

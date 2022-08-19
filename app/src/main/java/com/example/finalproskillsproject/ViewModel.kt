@@ -13,8 +13,8 @@ import java.net.SocketTimeoutException
 import java.util.*
 
 class MainViewModel(application: Application) : AndroidViewModel(application){
-    private val _balanceliveData = MutableLiveData<List<Balance?>>(null)
-    val balanceliveData: LiveData<List<Balance?>> =_balanceliveData
+    private val _balanceLiveData = MutableLiveData<List<Balance?>>(null)
+    val balanceliveData: LiveData<List<Balance?>> =_balanceLiveData
 
     //progress
     private val _progressLiveData= MutableLiveData<Boolean>(false)
@@ -27,30 +27,30 @@ class MainViewModel(application: Application) : AndroidViewModel(application){
     val liveData= MediatorLiveData<List<Balance>>()
     private val retrofit = RetrofitClient()
 
-    private suspend fun requestCoffee() = withContext(Dispatchers.IO) {
-        _progressLiveData.postValue(true)
-        try {
-            val response: Response<Balance> = retrofit.getBalanceApi().getBalance()
-            if (response.isSuccessful) {
-                val balance = response.body()
-                _balanceLiveData.postValue(balance)
-                _errorLiveData.postValue(null)
-            } else {
-                _coffeeLiveData.postValue(null)
-                _errorLiveData.postValue("Что-то не так...")
-            }
-        } catch (e: ConnectException) {
-            _coffeeLiveData.postValue(null)
-            _errorLiveData.postValue("Нет сети!")
-        } catch (e: SocketTimeoutException) {
-            _coffeeLiveData.postValue(null)
-            _errorLiveData.postValue("Превышено время ожидания!")
-        } catch (e: Exception) {
-            _coffeeLiveData.postValue(null)
-            _errorLiveData.postValue("Что-то не так!")
-        }
-        _progressLiveData.postValue(false)
-    }
+//    private suspend fun requestCoffee() = withContext(Dispatchers.IO) {
+//        _progressLiveData.postValue(true)
+//        try {
+//            val response: Response<Balance> = retrofit.getBalanceApi().getBalance()
+//            if (response.isSuccessful) {
+//                val balance = response.body()
+//                _balanceLiveData.postValue(balance)
+//                _errorLiveData.postValue(null)
+//            } else {
+//                _balanceLiveData.postValue(null)
+//                _errorLiveData.postValue("Что-то не так...")
+//            }
+//        } catch (e: ConnectException) {
+//            _balanceLiveData.postValue(null)
+//            _errorLiveData.postValue("Нет сети!")
+//        } catch (e: SocketTimeoutException) {
+//            _balanceLiveData.postValue(null)
+//            _errorLiveData.postValue("Превышено время ожидания!")
+//        } catch (e: Exception) {
+//            _balanceLiveData.postValue(null)
+//            _errorLiveData.postValue("Что-то не так!")
+//        }
+//        _progressLiveData.postValue(false)
+//    }
 
     fun getBalanceInfo():String{
         return ""
@@ -64,12 +64,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application){
     fun getBalanceList():List<Balance>{
         return listOf()
     }
-    fun getCardsList():List<Cards>{
-        return listOf()
-    }
-    fun getHistoryList():List<History>{
-        return listOf()
-    }
+//    fun getCardsList():List<Cards>{
+//        return listOf()
+//    }
+//    fun getHistoryList():List<History>{
+//        return listOf()
+//    }
 }
 
 class RegistrationViewModel(application: Application) : AndroidViewModel(application){
@@ -86,9 +86,9 @@ class RegistrationViewModel(application: Application) : AndroidViewModel(applica
 }
 
 class HistoryViewModel(application: Application):AndroidViewModel(application){
-    fun getHistoryList(id:Int):List<History>{
-        return listOf()
-    }
+//    fun getHistoryList(id:Int):List<History>{
+//        return listOf()
+//    }
 }
 class ChangeProfileViewModel(application: Application):AndroidViewModel(application){
     fun getBirthDate(year:Int, month:Int, day:Int):String{

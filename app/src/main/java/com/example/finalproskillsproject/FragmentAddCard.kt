@@ -9,6 +9,7 @@ import com.example.finalproskillsproject.databinding.AddCardFragmentBinding
 
 
 class FragmentAddCard:Fragment() {
+
     private var _binding: AddCardFragmentBinding? = null
     private val binding get() = _binding!!
 

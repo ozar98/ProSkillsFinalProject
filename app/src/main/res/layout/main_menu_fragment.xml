@@ -26,6 +26,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tool:text="+992 935012824"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/balance"
             app:layout_constraintTop_toBottomOf="@+id/text_balance"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +52,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginStart="20dp"
             android:textSize="14sp"
-            android:paddingBottom="16dp"
+            android:paddingBottom="8dp"
             android:id="@+id/cashback"
             tool:text="5.62 somoni"/>
         <ImageButton
@@ -51,6 +61,7 @@
             android:background="@drawable/ic_add"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/balance"
+            android:id="@+id/add_balance"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -74,7 +85,7 @@
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:id="@+id/text_cards"
                 android:text="@string/cards"/>
             <androidx.recyclerview.widget.RecyclerView
@@ -131,6 +142,29 @@
                     android:textColor="@color/black"
                     android:layout_marginStart="28dp"
                     app:layout_constraintStart_toEndOf="@id/transaction_text"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Cashbacks"
+                    app:layout_constraintTop_toBottomOf="@id/addcard_text"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/cashback_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cashback_rv"
+                    app:layout_constraintTop_toBottomOf="@id/cashback_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tool:listitem="@layout/cashback_rv"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_marginTop="16dp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <TextView
                 android:layout_width="wrap_content"
