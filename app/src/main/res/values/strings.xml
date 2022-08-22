@@ -13,23 +13,23 @@
     <string name="cards">Attached cards</string>
     <string name="history">History</string>
     <string name="transaction">Transaction from</string>
-    <string name="date">01 august 2022, 14:10</string>
+    <string name="date" translatable="false">01 august 2022, 14:10</string>
     <string name="fullName">Ozar Aini</string>
     <string name="personal_info">Personal Info</string>
     <string name="qr_text">QR Code</string>
-    <string name="settings_language">Language</string>
+    <string name="settings_language" translatable="false">Language</string>
     <string name="version">Version</string>
     <string name="transaction_history">Transaction History</string>
     <string name="change_profile">Change Profile Information</string>
     <string name="name">Name</string>
     <string name="surname">Surname</string>
-    <string name="phoneNumber">Phone Number (+992)</string>
-    <string name="dateOfBirth">Date of Birth</string>
+    <string name="phoneNumber" translatable="false">Phone Number (+992)</string>
+    <string name="dateOfBirth" translatable="false">Date of Birth</string>
     <string name="change_birth">Change Birth Date</string>
     <string name="apply_changes">Apply Changes</string>
     <string name="register">Register</string>
     <string name="amount_entry">Amount</string>
-    <string name="transaction_text">Transaction</string>
+    <string name="transaction_text" translatable="false">Transaction</string>
     <string name="send_to">Send to</string>
     <string name="send">Send</string>
     <string name="number">+992</string>
@@ -42,4 +42,8 @@
     <string name="valid">Valid to</string>
     <string name="card_replenish">Replenish balance by card</string>
     <string name="Cashbacks">Cashbacks</string>
+    <string name="scan_qr">Scan QR Code</string>
+    <string name="login_registration">login</string>
+    <string name="succesful_tranfer">Your money are succesfully transfered!</string>
+    <string name="change_language">Change Language</string>
 </resources>

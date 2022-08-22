@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/registration_name_entry"
-                android:hint="@string/name"
+                android:hint="@string/login_registration"
                 android:layout_marginHorizontal="16dp"
                 android:textSize="20sp"
                 android:paddingVertical="4dp"
@@ -50,7 +50,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/surname"
+                android:hint="@string/name"
                 android:background="@drawable/round_shape"
                 android:id="@+id/registration_surname_entry"
                 android:layout_marginHorizontal="16dp"

@@ -142,6 +142,23 @@
                     android:textColor="@color/black"
                     android:layout_marginStart="28dp"
                     app:layout_constraintStart_toEndOf="@id/transaction_text"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/add_card"
+                    android:id="@+id/qr_button"
+                    android:background="@drawable/ic_qr"
+                    android:layout_marginStart="32dp"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/addcard_text"
+                    app:layout_constraintTop_toBottomOf="@id/qr_button"
+                    android:text="@string/scan_qr"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="16dp"/>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

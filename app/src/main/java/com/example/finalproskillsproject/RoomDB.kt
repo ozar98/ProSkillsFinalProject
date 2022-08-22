@@ -3,7 +3,7 @@ package com.example.finalproskillsproject
 import android.content.Context
 import androidx.room.*
 
-@Database(entities = [Person::class], version=1)
+@Database(entities = [Person_DB::class], version=1)
 abstract class DB:RoomDatabase(){
     abstract fun getMyDAO():MyDao
 
@@ -26,7 +26,7 @@ abstract class DB:RoomDatabase(){
 
 
 @Entity
-data class Person(
+data class Person_DB(
     @PrimaryKey (autoGenerate = true) val id:Int,
     val name:String,
     val surname:String,
@@ -38,6 +38,6 @@ data class Person(
 
 @Dao
 interface MyDao{
-    @Query ("SELECT * FROM Person WHERE id=:id")
-    fun getLoggedUser(id:Int):Person
+    @Query ("SELECT * FROM Person_DB WHERE id=:id")
+    fun getLoggedUser(id:Int):Person_DB
 }

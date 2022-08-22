@@ -64,12 +64,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application){
     fun getBalanceList():List<Balance>{
         return listOf()
     }
-//    fun getCardsList():List<Cards>{
-//        return listOf()
-//    }
-//    fun getHistoryList():List<History>{
-//        return listOf()
-//    }
+    fun getCardsList():List<Cards>{
+        return listOf()
+    }
+    fun getHistoryList():List<HistoryInfo>{
+        return listOf()
+    }
 }
 
 class RegistrationViewModel(application: Application) : AndroidViewModel(application){
@@ -95,4 +95,20 @@ class ChangeProfileViewModel(application: Application):AndroidViewModel(applicat
         return "${if (day < 10) "0$day" else day}.${if ((month + 1) < 10) "0${month + 1}" else month + 1}.$year"
     }
 
+}
+
+class FragmentBalanceIncreaseViewModel(application: Application):AndroidViewModel(application){
+    fun increaseBalance(amount:Long, cardNumber:String){
+
+    }
+    fun transferedSuccessfully():Boolean{
+        return true
+    }
+}
+
+class TransactionViewModel(application: Application):AndroidViewModel(application){
+    fun sendToNumber(amount:Long, number:String){
+
+    }
+    fun updatePhoneBalance(){}
 }

@@ -8,13 +8,23 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.finalproskillsproject.databinding.HistoryBsLayoutBinding
 import com.example.finalproskillsproject.databinding.LoginFragmentBinding
 import com.example.finalproskillsproject.databinding.MainMenuFragmentBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.coroutines.NonDisposableHandle.parent
 
 class FragmentMainPage: Fragment() {
     private var _binding: MainMenuFragmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: MainViewModel
+
+    private var _bindingBS:HistoryBsLayoutBinding?=null
+    private val bindingBS get()=_binding!!
+    private var transactionInfo:BottomSheetDialog?=null
+
+    private val historyAdapter=HistoryAdapter()
+    private val cardsAdapter=CardsAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +43,9 @@ class FragmentMainPage: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         buttonsOnClickListener()
+        setUpBottomSheetActivity()
+
+        setUpAdapters()
     }
 
     override fun onStart() {
@@ -63,7 +76,8 @@ class FragmentMainPage: Fragment() {
 
     private fun buttonsOnClickListener(){
         binding.addCard.setOnClickListener {
-            findNavController().navigate(R.id.fragmentAddCard)
+//            findNavController().navigate(R.id.fragmentAddCard)
+            transactionInfo?.show()
         }
         binding.transactionButton.setOnClickListener {
             findNavController().navigate(R.id.fragmentTransaction)
@@ -72,5 +86,14 @@ class FragmentMainPage: Fragment() {
             findNavController().navigate(R.id.fragmentBalanceIncrease)
         }
 
+    }
+    private fun setUpAdapters(){
+
+    }
+    private fun setUpBottomSheetActivity(){
+        _bindingBS=HistoryBsLayoutBinding.inflate(layoutInflater,).also {
+            transactionInfo= BottomSheetDialog(requireContext())
+            transactionInfo?.setContentView(it.root)
+        }
     }
 }

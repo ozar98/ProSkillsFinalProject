@@ -36,4 +36,8 @@
     <string name="valid">Valid to</string>
     <string name="card_replenish">Replenish balance by card</string>
     <string name="Cashbacks">Cashbacks</string>
+    <string name="scan_qr">Scan QR Code</string>
+    <string name="login_registration">login</string>
+    <string name="succesful_tranfer">Your money are succesfully transfered!</string>
+    <string name="change_language">Change Language</string>
 </resources>
