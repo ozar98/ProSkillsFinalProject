@@ -6,5 +6,5 @@ class HistoryInfo(val id:Int,val fullName: String, val date:Long, val amount: In
 
 class Cards(val id: Int,val cardType:String, val bankName:String, val amountCard:String, val cardNumber:String, var isSelected:Boolean){
 }
-class CashBacks(val id:Int, val place:String, val percent:Int, val logo:Int)
+class CashBacks(val id:Int, val place:String, val percent:Int, val logo:Int, var isSelected: Boolean)
 

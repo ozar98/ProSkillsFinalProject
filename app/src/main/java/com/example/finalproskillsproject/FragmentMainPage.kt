@@ -25,6 +25,7 @@ class FragmentMainPage: Fragment() {
 
     private val historyAdapter=HistoryAdapter()
     private val cardsAdapter=CardsAdapter()
+    private val cashBacksAdapter=CashbacksAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +45,7 @@ class FragmentMainPage: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         buttonsOnClickListener()
         setUpBottomSheetActivity()
-
+        setUpTexts()
         setUpAdapters()
     }
 
@@ -76,8 +77,9 @@ class FragmentMainPage: Fragment() {
 
     private fun buttonsOnClickListener(){
         binding.addCard.setOnClickListener {
-//            findNavController().navigate(R.id.fragmentAddCard)
+            //findNavController().navigate(R.id.fragmentAddCard)
             transactionInfo?.show()
+
         }
         binding.transactionButton.setOnClickListener {
             findNavController().navigate(R.id.fragmentTransaction)
@@ -91,9 +93,14 @@ class FragmentMainPage: Fragment() {
 
     }
     private fun setUpBottomSheetActivity(){
-        _bindingBS=HistoryBsLayoutBinding.inflate(layoutInflater,).also {
+        _bindingBS=HistoryBsLayoutBinding.inflate(LayoutInflater.from(requireContext())).also {
             transactionInfo= BottomSheetDialog(requireContext())
             transactionInfo?.setContentView(it.root)
         }
+    }
+    private fun setUpTexts(){
+        binding.balance.text=viewModel.getBalanceInfo()
+        binding.phoneNumber.text=viewModel.getNumber()
+        binding.cashback.text=viewModel.getCashBack()
     }
 }

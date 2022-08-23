@@ -13,61 +13,30 @@ import java.net.SocketTimeoutException
 import java.util.*
 
 class MainViewModel(application: Application) : AndroidViewModel(application){
-    private val _balanceLiveData = MutableLiveData<List<Balance?>>(null)
-    val balanceliveData: LiveData<List<Balance?>> =_balanceLiveData
 
-    //progress
-    private val _progressLiveData= MutableLiveData<Boolean>(false)
-    val progressLiveData: LiveData<Boolean> =_progressLiveData
-    // error
-    private val _errorLiveData= MutableLiveData<String?>(null)
-    val errorLiveData: LiveData<String?> =_errorLiveData
-
-
-    val liveData= MediatorLiveData<List<Balance>>()
-    private val retrofit = RetrofitClient()
-
-//    private suspend fun requestCoffee() = withContext(Dispatchers.IO) {
-//        _progressLiveData.postValue(true)
-//        try {
-//            val response: Response<Balance> = retrofit.getBalanceApi().getBalance()
-//            if (response.isSuccessful) {
-//                val balance = response.body()
-//                _balanceLiveData.postValue(balance)
-//                _errorLiveData.postValue(null)
-//            } else {
-//                _balanceLiveData.postValue(null)
-//                _errorLiveData.postValue("Что-то не так...")
-//            }
-//        } catch (e: ConnectException) {
-//            _balanceLiveData.postValue(null)
-//            _errorLiveData.postValue("Нет сети!")
-//        } catch (e: SocketTimeoutException) {
-//            _balanceLiveData.postValue(null)
-//            _errorLiveData.postValue("Превышено время ожидания!")
-//        } catch (e: Exception) {
-//            _balanceLiveData.postValue(null)
-//            _errorLiveData.postValue("Что-то не так!")
-//        }
-//        _progressLiveData.postValue(false)
-//    }
 
     fun getBalanceInfo():String{
-        return ""
+        return "1200 Somoni"
     }
     fun getCashBack():String{
-        return ""
+        return "5.62 Somoni"
     }
     fun getUserInfo():String{
         return ""
     }
-    fun getBalanceList():List<Balance>{
-        return listOf()
+    fun getNumber():String{
+        return "+992 935012824"
     }
+//    fun getBalanceList():List<Balance>{
+//        return listOf()
+//    }
     fun getCardsList():List<Cards>{
         return listOf()
     }
     fun getHistoryList():List<HistoryInfo>{
+        return listOf()
+    }
+    fun getCashBacksList():List<CashBacks>{
         return listOf()
     }
 }
@@ -111,4 +80,9 @@ class TransactionViewModel(application: Application):AndroidViewModel(applicatio
 
     }
     fun updatePhoneBalance(){}
+}
+class AddCardViewModel(application: Application):AndroidViewModel(application){
+    fun getBirthDate(year:Int, month:Int, day:Int):String{
+        return "${if (day < 10) "0$day" else day}.${if ((month + 1) < 10) "0${month + 1}" else month + 1}.$year"
+    }
 }

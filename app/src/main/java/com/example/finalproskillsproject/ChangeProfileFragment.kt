@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.finalproskillsproject.databinding.ChangeProfileInfoFragmentBinding
 import java.util.*
 
@@ -62,6 +63,13 @@ class ChangeProfileFragment:Fragment() {
         binding.changeBirth.setOnClickListener {
             getBirthDate()
         }
+        binding.back.setOnClickListener {
+            findNavController().navigateUp()
+        }
+        binding.applyChanges.setOnClickListener {
+            changeProfileData()
+            findNavController().navigateUp()
+        }
     }
     private fun getBirthDate(){
         val calendar = Calendar.getInstance()
@@ -69,10 +77,14 @@ class ChangeProfileFragment:Fragment() {
             requireContext(),
             { _, year, month, day ->
                 binding.birthFixed.setText(viewModel.getBirthDate(year,month,day))
+                binding.birthFixed.visibility=View.VISIBLE
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)
         ).show()
+    }
+    private fun changeProfileData(){
+
     }
 }

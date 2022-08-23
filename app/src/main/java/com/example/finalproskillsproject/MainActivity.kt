@@ -1,5 +1,6 @@
 package com.example.finalproskillsproject
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -14,7 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.finalproskillsproject.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: MainViewModel
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setFragmentChangeListener()
+        language = getSharedPreferences(SHARED_PREFERENCES_KEY, MODE_PRIVATE).getString(LANGUAGE_KEY, "ru")
     }
 
     override fun onDestroy() {
@@ -59,6 +61,11 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    companion object {
+        const val LANGUAGE_KEY="English"
+        const val SHARED_PREFERENCES_KEY="1"
     }
 
 }

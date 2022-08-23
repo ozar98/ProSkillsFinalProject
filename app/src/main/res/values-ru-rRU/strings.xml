@@ -29,7 +29,7 @@
     <string name="send_to">Отправить</string>
     <string name="send">Отправить</string>
     <string name="number">+992</string>
-    <string name="To_wallet">На кашелек</string>
+    <string name="To_wallet">На кошелек</string>
     <string name="addcard">Добавить карту</string>
     <string name="card_type">Пожалуйста выберете тип карты</string>
     <string name="card_name_text">Полное имя на карте</string>
@@ -41,5 +41,5 @@
     <string name="scan_qr">Сканировать QR код</string>
     <string name="login_registration">Логин</string>
     <string name="succesful_tranfer">Ваши деньги успешно отправлены</string>
-    <string name="change_language">Change Language</string>
+    <string name="change_language">Поменять язык</string>
 </resources>

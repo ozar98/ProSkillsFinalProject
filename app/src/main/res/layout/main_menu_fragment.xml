@@ -30,6 +30,7 @@
             android:textSize="20sp"
             app:layout_constraintTop_toTopOf="parent"
             tool:text="+992 935012824"
+            android:id="@+id/phone_number"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:textColor="@color/black"/>

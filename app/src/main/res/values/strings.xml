@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">FinalProskillsProject</string>
+    <string name="app_name">FinalProskillsProject</string>
     <string name="login">Log In</string>
     <string name="forgot_password">Forgot password</string>
     <string name="sign_in">Sign In to Continue</string>
@@ -46,4 +46,5 @@
     <string name="login_registration">login</string>
     <string name="succesful_tranfer">Your money are succesfully transfered!</string>
     <string name="change_language">Change Language</string>
+
 </resources>
