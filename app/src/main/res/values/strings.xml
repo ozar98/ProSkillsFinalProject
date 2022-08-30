@@ -45,12 +45,13 @@
     <string name="Cashbacks">Cashbacks</string>
     <string name="scan_qr">Scan QR Code</string>
     <string name="login_registration">login</string>
-    <string name="succesful_tranfer">Your money are succesfully transfered!</string>
+    <string name="succesful_tranfer">Your money are successfully transferred!</string>
     <string name="change_language">Change Language</string>
     <string name="receiverTransaction">Receiver: </string>
     <string name="payment_method">Payment method:</string>
     <string name="transactionID">Transaction ID:</string>
     <string name="help">Help</string>
+    <string name="succesful_registration">Successfully registered</string>
 
 
     <string-array name="CardType">

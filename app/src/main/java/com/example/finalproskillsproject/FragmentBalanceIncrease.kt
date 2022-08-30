@@ -57,8 +57,13 @@ class FragmentBalanceIncrease: Fragment() {
         val cardNumber=binding.cardNumberReplenishEntry.text.toString()
         if (cardNumber.length==16){
             viewModel.cardLiveData.observe(viewLifecycleOwner){
-                Log.d("TAG_TEST", "$it")
+
                 viewModel.increaseBalance(args.id,amount.toLong(),it)
+                Toast.makeText(
+                    requireContext(),
+                    getText(R.string.succesful_tranfer) ,
+                    Toast.LENGTH_SHORT
+                ).show()
                 findNavController().navigateUp()
             }
             viewModel.getcardID(cardNumber)

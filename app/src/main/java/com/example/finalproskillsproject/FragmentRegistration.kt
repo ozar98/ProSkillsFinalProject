@@ -2,6 +2,7 @@ package com.example.finalproskillsproject
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -90,15 +91,29 @@ class FragmentRegistration : Fragment() {
         binding.registrationNext.setOnClickListener {
             if (entriesAreFilled() && binding.registrationCheckbox.isChecked) {
                     registerPerson()
-
+                Toast.makeText(
+                    requireContext(),
+                    getText(R.string.succesful_registration) ,
+                    Toast.LENGTH_SHORT
+                ).show()
                 findNavController().navigateUp()
             }
         }
         binding.english.setOnClickListener {
-            TODO()
+            language = "en"
+            requireContext().getSharedPreferences(MainActivity.SHARED_PREFERENCES_KEY,
+                Context.MODE_PRIVATE
+            )
+                .edit().putString(MainActivity.LANGUAGE_KEY, "en").apply()
+            requireActivity().recreate()
         }
         binding.russian.setOnClickListener {
-            TODO()
+            language = "ru"
+            requireContext().getSharedPreferences(MainActivity.SHARED_PREFERENCES_KEY,
+                Context.MODE_PRIVATE
+            )
+                .edit().putString(MainActivity.LANGUAGE_KEY, "ru").apply()
+            requireActivity().recreate()
         }
         binding.datePicker.setOnClickListener {
             getBirthDate()
