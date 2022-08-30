@@ -2,12 +2,15 @@ package com.example.finalproskillsproject
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.finalproskillsproject.databinding.AddCardFragmentBinding
 import java.util.*
 
@@ -18,7 +21,8 @@ class FragmentAddCard:Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var viewModel:AddCardViewModel
-
+    private lateinit var cardType: List<String>
+    private val args:FragmentAddCardArgs by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel=ViewModelProvider(this)[AddCardViewModel::class.java]
@@ -35,8 +39,8 @@ class FragmentAddCard:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getEntries()
         buttonsOnClickListeners()
+        setupCardTypeSpinner()
     }
     private fun buttonsOnClickListeners(){
         binding.back.setOnClickListener {
@@ -50,11 +54,13 @@ class FragmentAddCard:Fragment() {
             getDate()
         }
     }
-    private fun getEntries(){
-
-    }
     private fun getData(){
-
+        val cardType=binding.cardTypeSpinner.adapter.getItem(binding.cardTypeSpinner.selectedItemPosition).toString()
+        val cardNumber=binding.cardNumberEntry.text.toString()
+        val validDate=binding.cardExpireEntry.text.toString()
+        val bankName=binding.cardNameEntry.text.toString()
+        Log.d("TAG_CARD", "${args.id}")
+        viewModel.addCard(CardsRetrofit(1,cardType, cardNumber, validDate,1000,args.id,bankName))
     }
     private fun getDate(){
         val calendar = Calendar.getInstance()
@@ -68,6 +74,15 @@ class FragmentAddCard:Fragment() {
             calendar.get(Calendar.DAY_OF_MONTH)
         ).show()
 
+    }
+    private fun setupCardTypeSpinner(){
+        cardType = resources.getStringArray(R.array.CardType).toList()
+
+        val adapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_item, cardType
+        )
+        binding.cardTypeSpinner.adapter = adapter
     }
 
 

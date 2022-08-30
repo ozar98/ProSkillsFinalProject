@@ -60,7 +60,8 @@
                         tool:text="Halyk Bank - 4242"
                         android:id="@+id/bank_and_last_digits"
                         android:layout_marginTop="16dp"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
                         />
                 </LinearLayout>
                 <TextView
@@ -69,6 +70,8 @@
                     android:layout_marginTop="36dp"
                     android:layout_marginStart="8dp"
                     android:id="@+id/card_amount"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
                     tool:text="555 somoni"/>
 
             </LinearLayout>
@@ -80,9 +83,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="36dp"
                     android:textColor="@color/black"
-                    android:textSize="14dp"
+                    android:textSize="18sp"
+
                     android:layout_marginTop="12dp"
                     android:text="16ds"
                     android:layout_marginBottom="16dp"

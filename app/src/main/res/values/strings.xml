@@ -23,19 +23,20 @@
     <string name="change_profile">Change Profile Information</string>
     <string name="name">Name</string>
     <string name="surname">Surname</string>
-    <string name="phoneNumber" translatable="false">Phone Number (+992)</string>
-    <string name="dateOfBirth" translatable="false">Date of Birth</string>
+    <string name="phoneNumber">Phone Number (+992)</string>
+    <string name="dateOfBirth" >Date of Birth</string>
     <string name="change_birth">Change Birth Date</string>
     <string name="apply_changes">Apply Changes</string>
     <string name="register">Register</string>
     <string name="amount_entry">Amount</string>
-    <string name="transaction_text" translatable="false">Transaction</string>
+    <string name="transaction_text" >Transaction</string>
     <string name="send_to">Send to</string>
     <string name="send">Send</string>
     <string name="number">+992</string>
     <string name="To_wallet">To wallet</string>
     <string name="addcard">Add Card</string>
     <string name="card_type">Please choose card type</string>
+    <string name="bank_name">Bank Name</string>
     <string name="card_name_text">Full Name on Card</string>
     <string name="email">Email</string>
     <string name="card_number">Card Number</string>
@@ -46,5 +47,16 @@
     <string name="login_registration">login</string>
     <string name="succesful_tranfer">Your money are succesfully transfered!</string>
     <string name="change_language">Change Language</string>
+    <string name="receiverTransaction">Receiver: </string>
+    <string name="payment_method">Payment method:</string>
+    <string name="transactionID">Transaction ID:</string>
+    <string name="help">Help</string>
+
+
+    <string-array name="CardType">
+        <item>National</item>
+        <item>Visa</item>
+        <item>Master</item>
+    </string-array>
 
 </resources>

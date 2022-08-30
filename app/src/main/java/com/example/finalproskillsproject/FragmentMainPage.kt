@@ -2,12 +2,15 @@ package com.example.finalproskillsproject
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.finalproskillsproject.databinding.HistoryBsLayoutBinding
 import com.example.finalproskillsproject.databinding.LoginFragmentBinding
 import com.example.finalproskillsproject.databinding.MainMenuFragmentBinding
@@ -20,16 +23,20 @@ class FragmentMainPage: Fragment() {
     private lateinit var viewModel: MainViewModel
 
     private var _bindingBS:HistoryBsLayoutBinding?=null
-    private val bindingBS get()=_binding!!
+    private val bindingBS get()=_bindingBS!!
     private var transactionInfo:BottomSheetDialog?=null
 
     private val historyAdapter=HistoryAdapter()
     private val cardsAdapter=CardsAdapter()
     private val cashBacksAdapter=CashbacksAdapter()
 
+    private val args:FragmentMainPageArgs by navArgs()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        activity?.let {
+            viewModel = ViewModelProvider(it)[MainViewModel::class.java]
+        }
     }
 
     override fun onCreateView(
@@ -43,11 +50,16 @@ class FragmentMainPage: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        buttonsOnClickListener()
+
+        setupAdapters()
+        observeLiveData()
         setUpBottomSheetActivity()
+        buttonsOnClickListener()
         setUpTexts()
-        setUpAdapters()
+
     }
+
+
 
     override fun onStart() {
         super.onStart()
@@ -75,23 +87,25 @@ class FragmentMainPage: Fragment() {
     }
 
 
+
     private fun buttonsOnClickListener(){
         binding.addCard.setOnClickListener {
-            //findNavController().navigate(R.id.fragmentAddCard)
-            transactionInfo?.show()
+            findNavController().navigate(FragmentMainPageDirections.actionFragmentMainPageToFragmentAddCard(args.id))
 
         }
         binding.transactionButton.setOnClickListener {
-            findNavController().navigate(R.id.fragmentTransaction)
+            findNavController().navigate(FragmentMainPageDirections.actionFragmentMainPageToFragmentTransaction(args.id))
         }
         binding.addBalance.setOnClickListener {
-            findNavController().navigate(R.id.fragmentBalanceIncrease)
+            findNavController().navigate(FragmentMainPageDirections.actionFragmentMainPageToFragmentBalanceIncrease(args.id))
+        }
+
+        historyAdapter.onItemClick={
+            showTransaction(it)
         }
 
     }
-    private fun setUpAdapters(){
 
-    }
     private fun setUpBottomSheetActivity(){
         _bindingBS=HistoryBsLayoutBinding.inflate(LayoutInflater.from(requireContext())).also {
             transactionInfo= BottomSheetDialog(requireContext())
@@ -99,8 +113,64 @@ class FragmentMainPage: Fragment() {
         }
     }
     private fun setUpTexts(){
-        binding.balance.text=viewModel.getBalanceInfo()
-        binding.phoneNumber.text=viewModel.getNumber()
-        binding.cashback.text=viewModel.getCashBack()
+
+    }
+    private fun observeLiveData() {
+        viewModel.personLiveData.observe(viewLifecycleOwner){ person->
+            person?.let {
+                binding.balance.text=person.amount.toString()
+                binding.cashback.text=person.cashbackamount.toString()
+                binding.phoneNumber.text=person.phoneNumber
+            }
+        }
+        viewModel.cardsLiveData.observe(viewLifecycleOwner){
+            if (it!=null){
+                Log.d("TAG_CASH", "${it}")
+                cardsAdapter.submitList(it)
+            }
+        }
+        viewModel.transactionLiveData.observe(viewLifecycleOwner){
+            if (it!=null){
+                historyAdapter.submitList(it)
+            }
+        }
+        viewModel.cashbackLiveData.observe(viewLifecycleOwner){
+            if (it!=null){
+
+                cashBacksAdapter.submitList(it)
+            }
+        }
+
+        viewModel.getPerson(args.id)
+        viewModel.getCards()
+        viewModel.getTransactions()
+        viewModel.getCashbacks()
+
+    }
+    private fun showTransaction(transaction: TransactionResponse) {
+        transactionInfo?.show()
+        bindingBS.transactionPersonBs.text="${getText(R.string.transaction)} ${transaction?.sendername}"
+        bindingBS.transactionAmount.text=transaction.amount.toString()+" TJS"
+        if (transaction.receivertype=="Card") {
+            bindingBS.transactionReceiverBs.visibility=View.GONE
+            bindingBS.transactionImageBs.setImageResource(R.drawable.ic_credit_card)
+        }else if(transaction.receivertype=="Phone"){
+
+            bindingBS.transactionReceiverBs.visibility=View.VISIBLE
+            bindingBS.transactionImageBs.setImageResource(R.drawable.ic_wallet)
+            bindingBS.transactionReceiverBs.text="${getText(R.string.receiverTransaction)} ${transaction.receivername}"
+        }
+        bindingBS.transactionMethodBs.text="${getText(R.string.payment_method)} ${transaction.sendertype}"
+        bindingBS.transactionDateBs.text=transaction.date
+        bindingBS.transactionId.text="${getText(R.string.transactionID)} ${transaction.id.toString()}"
+        bindingBS.back.setOnClickListener {
+            transactionInfo?.dismiss()
+        }
+    }
+
+    private fun setupAdapters(){
+        binding.cardsRv.adapter=cardsAdapter
+        binding.historyRv.adapter=historyAdapter
+        binding.cashbackRv.adapter=cashBacksAdapter
     }
 }

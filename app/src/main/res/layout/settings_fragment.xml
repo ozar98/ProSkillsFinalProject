@@ -178,7 +178,7 @@
                     />
                 <TextView
                     android:layout_width="wrap_content"
-                    tool:text="1.0.0"
+                    android:text="1.0.0"
                     android:id="@+id/settings_version"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -215,7 +215,7 @@
                     />
                 <TextView
                     android:layout_width="wrap_content"
-                    tool:text="Help"
+                    tool:text="@string/help"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:drawableEnd="@drawable/ic_next"

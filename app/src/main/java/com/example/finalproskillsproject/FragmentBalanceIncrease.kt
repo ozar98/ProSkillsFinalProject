@@ -1,6 +1,7 @@
 package com.example.finalproskillsproject
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,18 +9,20 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.finalproskillsproject.databinding.BalanceIncreaseFragmentBinding
 
 class FragmentBalanceIncrease: Fragment() {
     private var _binding:BalanceIncreaseFragmentBinding?=null
     private val binding get() =_binding!!
 
-    private lateinit var viewModel:FragmentBalanceIncreaseViewModel
+    private lateinit var viewModel:MainViewModel
+    private val args:FragmentBalanceIncreaseArgs by navArgs()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel=ViewModelProvider(this)[FragmentBalanceIncreaseViewModel::class.java]
+        viewModel=ViewModelProvider(this)[MainViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -47,23 +50,21 @@ class FragmentBalanceIncrease: Fragment() {
         }
         binding.submit.setOnClickListener {
             getEntriesAndVerify()
-            notifyUser()
-
         }
     }
     private fun getEntriesAndVerify(){
         val amount=binding.amountReplenishEntry.text.toString()
         val cardNumber=binding.cardNumberReplenishEntry.text.toString()
         if (cardNumber.length==16){
-            viewModel.increaseBalance(amount.toLong(),cardNumber)
-            findNavController().navigateUp()
+            viewModel.cardLiveData.observe(viewLifecycleOwner){
+                Log.d("TAG_TEST", "$it")
+                viewModel.increaseBalance(args.id,amount.toLong(),it)
+                findNavController().navigateUp()
+            }
+            viewModel.getcardID(cardNumber)
         }else{
             Toast.makeText(requireContext(),"Card Number is not valid", Toast.LENGTH_SHORT).show()
         }
     }
-    private fun notifyUser(){
-        if (viewModel.transferedSuccessfully()){
-            Toast.makeText(requireContext(),getText(R.string.succesful_tranfer), Toast.LENGTH_SHORT).show()
-        }
-    }
+
 }

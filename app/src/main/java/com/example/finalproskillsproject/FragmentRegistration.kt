@@ -10,8 +10,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.finalproskillsproject.databinding.RegistrationFragmentBinding
+import kotlinx.coroutines.*
 import java.util.*
 
 class FragmentRegistration : Fragment() {
@@ -36,7 +38,6 @@ class FragmentRegistration : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getUserInfo()
         onButtonsClickedListener()
 
     }
@@ -66,13 +67,6 @@ class FragmentRegistration : Fragment() {
         super.onDestroy()
     }
 
-    private fun getUserInfo() {
-        val name = binding.registrationNameEntry.text.toString()
-        val surname = binding.registrationSurnameEntry.text.toString()
-        val password = binding.registrationPassword.text.toString()
-        val phone = binding.registrationPhoneEntry.text.toString()
-        val birthDate = binding.birthDateText.text.toString()
-    }
 
     private fun entriesAreFilled(): Boolean {
         binding.apply {
@@ -95,8 +89,9 @@ class FragmentRegistration : Fragment() {
     private fun onButtonsClickedListener() {
         binding.registrationNext.setOnClickListener {
             if (entriesAreFilled() && binding.registrationCheckbox.isChecked) {
+                    registerPerson()
 
-                findNavController().navigate(R.id.fragmentMainPage)
+                findNavController().navigateUp()
             }
         }
         binding.english.setOnClickListener {
@@ -123,5 +118,13 @@ class FragmentRegistration : Fragment() {
             calendar.get(Calendar.DAY_OF_MONTH)
         ).show()
 
+    }
+    private fun registerPerson(){
+        val name = binding.registrationNameEntry.text.toString()
+        val surname = binding.registrationSurnameEntry.text.toString()
+        val password = binding.registrationPassword.text.toString()
+        val phone = binding.registrationPhoneEntry.text.toString()
+        val birthDate = binding.birthDateText.text.toString()
+        viewModel.registerPerson(PersonRetrofit(1,name,surname,password,phone,birthDate,0,0.0f))
     }
 }

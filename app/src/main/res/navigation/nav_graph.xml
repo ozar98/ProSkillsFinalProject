@@ -11,31 +11,26 @@
         tools:layout="@layout/login_fragment" >
         <action
             android:id="@+id/action_fragmentLogin_to_fragmentRegistration"
-            app:destination="@id/fragmentRegistration" />
+            app:destination="@id/fragmentRegistration"
+            app:popUpTo="@id/fragmentLogin"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_fragmentLogin_to_fragmentMainPage"
-            app:destination="@id/fragmentMainPage" />
+            app:destination="@id/fragmentMainPage"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/fragmentLogin"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/fragmentRegistration"
         android:name="com.example.finalproskillsproject.FragmentRegistration"
         android:label="registration_fragment"
-        tools:layout="@layout/registration_fragment" >
-        <action
-            android:id="@+id/action_fragmentRegistration_to_fragmentMainPage"
-            app:destination="@id/fragmentMainPage" />
-    </fragment>
+        tools:layout="@layout/registration_fragment" />
     <fragment
         android:id="@+id/fragmentMainPage"
         android:name="com.example.finalproskillsproject.FragmentMainPage"
         android:label="main_menu_fragment"
         tools:layout="@layout/main_menu_fragment" >
-        <action
-            android:id="@+id/action_fragmentMainPage_to_fragmentsHistory"
-            app:destination="@id/fragmentsHistory" />
-        <action
-            android:id="@+id/action_fragmentMainPage_to_fragmentSettings"
-            app:destination="@id/fragmentSettings" />
         <action
             android:id="@+id/action_fragmentMainPage_to_fragmentTransaction"
             app:destination="@id/fragmentTransaction" />
@@ -51,6 +46,20 @@
         <action
             android:id="@+id/action_fragmentMainPage_to_fragmentBalanceIncrease"
             app:destination="@id/fragmentBalanceIncrease" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_fragmentMainPage_to_fragmentsHistory"
+            app:destination="@id/fragmentsHistory"
+            app:popUpTo="@id/fragmentMainPage"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_fragmentMainPage_to_fragmentSettings"
+            app:destination="@id/fragmentSettings"
+            app:popUpTo="@id/fragmentMainPage"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/fragmentsHistory"
@@ -59,10 +68,9 @@
         tools:layout="@layout/history_fragment" >
         <action
             android:id="@+id/action_fragmentsHistory_to_fragmentSettings"
-            app:destination="@id/fragmentSettings" />
-        <action
-            android:id="@+id/action_fragmentsHistory_to_fragmentMainPage"
-            app:destination="@id/fragmentMainPage" />
+            app:destination="@id/fragmentSettings"
+            app:popUpTo="@id/fragmentMainPage"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/fragmentSettings"
@@ -71,50 +79,57 @@
         tools:layout="@layout/settings_fragment" >
         <action
             android:id="@+id/action_fragmentSettings_to_fragmentLogin"
-            app:destination="@id/fragmentLogin" />
+            app:destination="@id/fragmentLogin"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/fragmentMainPage"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_fragmentSettings_to_changeProfileFragment"
-            app:destination="@id/changeProfileFragment" />
+            app:destination="@id/changeProfileFragment"
+            app:popUpTo="@id/fragmentSettings"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_fragmentSettings_to_fragmentsHistory"
-            app:destination="@id/fragmentsHistory" />
-        <action
-            android:id="@+id/action_fragmentSettings_to_fragmentMainPage"
-            app:destination="@id/fragmentMainPage" />
+            app:destination="@id/fragmentsHistory"
+            app:popUpTo="@id/fragmentMainPage"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/changeProfileFragment"
         android:name="com.example.finalproskillsproject.ChangeProfileFragment"
         android:label="change_profile_info_fragment"
-        tools:layout="@layout/change_profile_info_fragment" />
+        tools:layout="@layout/change_profile_info_fragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentTransaction"
         android:name="com.example.finalproskillsproject.FragmentTransaction"
         android:label="transaction_fragment"
         tools:layout="@layout/transaction_fragment" >
-        <action
-            android:id="@+id/action_fragmentTransaction_to_fragmentMainPage"
-            app:destination="@id/fragmentMainPage" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/fragmentAddCard"
         android:name="com.example.finalproskillsproject.FragmentAddCard"
         android:label="add_card_fragment"
         tools:layout="@layout/add_card_fragment" >
-        <action
-            android:id="@+id/action_fragmentAddCard_to_fragmentMainPage"
-            app:destination="@id/fragmentMainPage" />
-        <action
-            android:id="@+id/action_fragmentAddCard_to_fragmentMainPage2"
-            app:destination="@id/fragmentMainPage" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/fragmentBalanceIncrease"
         android:name="com.example.finalproskillsproject.FragmentBalanceIncrease"
         android:label="balance_increase_fragment"
         tools:layout="@layout/balance_increase_fragment" >
-        <action
-            android:id="@+id/action_fragmentBalanceIncrease_to_fragmentMainPage"
-            app:destination="@id/fragmentMainPage" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 </navigation>

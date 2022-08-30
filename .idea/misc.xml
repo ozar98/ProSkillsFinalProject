@@ -16,6 +16,8 @@
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_attach.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_back.xml" value="0.169" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_back_white.xml" value="0.161" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_baseline_discount_24.xml" value="0.161" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_button_wallet.xml" value="0.161" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_check_box.xml" value="0.1715" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_contacts.xml" value="0.158" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/drawable/ic_credit_card.xml" value="0.1715" />
@@ -57,6 +59,8 @@
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/settings_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/layout/transaction_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/menu/bottom_menu.xml" value="0.18984375" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/xml/internet_permission.xml" value="0.253125" />
+        <entry key="..\:/Users/User/Desktop/AndroidProjects/FinalProskillsProject/app/src/main/res/xml/network_sequrity_config.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

@@ -1,6 +1,7 @@
 package com.example.finalproskillsproject
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,16 +9,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.finalproskillsproject.databinding.ChangeProfileInfoFragmentBinding
 import java.util.*
 
 class ChangeProfileFragment:Fragment() {
     private var _binding: ChangeProfileInfoFragmentBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel:ChangeProfileViewModel
+    private lateinit var viewModel:MainViewModel
+
+    private val args:ChangeProfileFragmentArgs by navArgs()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[ChangeProfileViewModel::class.java]
+        activity?.let {
+            viewModel = ViewModelProvider(it)[MainViewModel::class.java]
+        }
     }
 
     override fun onCreateView(
@@ -32,6 +39,7 @@ class ChangeProfileFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getButtonsClicked()
+        getData()
     }
 
     override fun onStart() {
@@ -68,7 +76,7 @@ class ChangeProfileFragment:Fragment() {
         }
         binding.applyChanges.setOnClickListener {
             changeProfileData()
-            findNavController().navigateUp()
+
         }
     }
     private fun getBirthDate(){
@@ -85,6 +93,19 @@ class ChangeProfileFragment:Fragment() {
         ).show()
     }
     private fun changeProfileData(){
-
+        viewModel.changeProfile(binding.changeName.text.toString(),
+        binding.birthFixed.text.toString())
+        findNavController().navigateUp()
     }
+    private fun getData(){
+       viewModel.personLiveData.observe(viewLifecycleOwner){
+            binding.apply {
+                phone.setText(it?.phoneNumber)
+                changeName.setText(it?.fullName)
+
+            }
+        }
+    }
+
+
 }

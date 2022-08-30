@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.finalproskillsproject.databinding.ChangeLanguageBsBinding
 import com.example.finalproskillsproject.databinding.HistoryBsLayoutBinding
@@ -16,20 +17,29 @@ import com.example.finalproskillsproject.databinding.SettingsFragmentBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.util.*
 
-class FragmentSettings: Fragment() {
+class FragmentSettings : Fragment() {
     private var _binding: SettingsFragmentBinding? = null
     private val binding get() = _binding!!
 
-    private var _bindingBS: ChangeLanguageBsBinding?=null
-    private val bindingBS get()=_bindingBS!!
-    private var languageChange: BottomSheetDialog?=null
+    private var _bindingBS: ChangeLanguageBsBinding? = null
+    private val bindingBS get() = _bindingBS!!
+    private var languageChange: BottomSheetDialog? = null
+
+    private lateinit var viewModel: MainViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.let {
+            viewModel = ViewModelProvider(it)[MainViewModel::class.java]
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding= SettingsFragmentBinding.inflate(inflater, container,false)
+        _binding = SettingsFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -37,6 +47,7 @@ class FragmentSettings: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpBottomSheetActivity()
         onButtonsClickListener()
+        observeLiveData()
 
     }
 
@@ -58,7 +69,7 @@ class FragmentSettings: Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding=null
+        _binding = null
     }
 
     override fun onDestroy() {
@@ -66,9 +77,13 @@ class FragmentSettings: Fragment() {
     }
 
 
-    private fun onButtonsClickListener(){
+    private fun onButtonsClickListener() {
         binding.settingName.setOnClickListener {
-            findNavController().navigate(R.id.changeProfileFragment)
+            findNavController().navigate(
+                FragmentSettingsDirections.actionFragmentSettingsToChangeProfileFragment(
+                    viewModel.personID
+                )
+            )
         }
         binding.settingsQr.setOnClickListener {
 
@@ -84,7 +99,13 @@ class FragmentSettings: Fragment() {
 
         }
         binding.logOut.setOnClickListener {
-            findNavController().navigateUp()
+            requireActivity().getSharedPreferences(
+                MainActivity.SHARED_PREFERENCES_KEY,
+                MODE_PRIVATE
+            ).edit().remove(
+                ID_KEY
+            ).apply()
+            findNavController().navigate(R.id.action_fragmentSettings_to_fragmentLogin)
         }
         bindingBS.back.setOnClickListener {
             languageChange?.dismiss()
@@ -95,25 +116,34 @@ class FragmentSettings: Fragment() {
 
 
     }
-    private fun setUpBottomSheetActivity(){
-        _bindingBS=ChangeLanguageBsBinding.inflate(LayoutInflater.from(requireContext())).also{
-        languageChange= BottomSheetDialog(requireContext())
+
+    private fun setUpBottomSheetActivity() {
+        _bindingBS = ChangeLanguageBsBinding.inflate(LayoutInflater.from(requireContext())).also {
+            languageChange = BottomSheetDialog(requireContext())
             languageChange?.setContentView(it.root)
         }
         bindingBS.english.isChecked = language == "en"
         bindingBS.russian.isChecked = language == "ru"
     }
+
     private fun changeLanguage() {
-        if(bindingBS.english.isChecked){
+        if (bindingBS.english.isChecked) {
             language = "en"
-            requireContext().getSharedPreferences(MainActivity.SHARED_PREFERENCES_KEY, MODE_PRIVATE).edit().putString(MainActivity.LANGUAGE_KEY, "en").apply()
-        }
-        else if(bindingBS.russian.isChecked){
-            language="ru"
-            requireContext().getSharedPreferences(MainActivity.SHARED_PREFERENCES_KEY, MODE_PRIVATE).edit().putString(MainActivity.LANGUAGE_KEY, "ru").apply()
+            requireContext().getSharedPreferences(MainActivity.SHARED_PREFERENCES_KEY, MODE_PRIVATE)
+                .edit().putString(MainActivity.LANGUAGE_KEY, "en").apply()
+        } else if (bindingBS.russian.isChecked) {
+            language = "ru"
+            requireContext().getSharedPreferences(MainActivity.SHARED_PREFERENCES_KEY, MODE_PRIVATE)
+                .edit().putString(MainActivity.LANGUAGE_KEY, "ru").apply()
         }
 
         requireActivity().recreate()
     }
 
+    private fun observeLiveData() {
+        binding.apply {
+            fullName.text = viewModel.personName
+            settingName.text = viewModel.personName
+        }
+    }
 }

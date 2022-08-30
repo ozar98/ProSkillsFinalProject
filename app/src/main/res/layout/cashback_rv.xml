@@ -36,7 +36,7 @@
                         android:layout_height="60dp"
                         android:layout_marginTop="16dp"
                         android:id="@+id/card_icon"
-                        android:src="@drawable/ic_nationalcard"
+                        android:src="@drawable/ic_baseline_discount_24"
                         android:background="?attr/selectableItemBackground"
                         android:layout_marginStart="8dp"/>
 

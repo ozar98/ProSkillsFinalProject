@@ -40,4 +40,5 @@
     <string name="login_registration">login</string>
     <string name="succesful_tranfer">Your money are succesfully transfered!</string>
     <string name="change_language">Change Language</string>
+    <string name="receiverTransaction">Receiver</string>
 </resources>

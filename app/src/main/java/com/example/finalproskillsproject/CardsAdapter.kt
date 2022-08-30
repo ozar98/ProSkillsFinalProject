@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.ListAdapter
 
 import androidx.recyclerview.widget.RecyclerView
 
-class CardsAdapter:ListAdapter<Cards,CardsAdapter.CardsViewHolder>(CardsDiffUtil()){
+class CardsAdapter:ListAdapter<CardsRetrofit,CardsAdapter.CardsViewHolder>(CardsDiffUtil()){
 
 
 
@@ -34,24 +34,24 @@ class CardsAdapter:ListAdapter<Cards,CardsAdapter.CardsViewHolder>(CardsDiffUtil
 
 
     override fun onBindViewHolder(holder: CardsViewHolder, position: Int) {
-        if (getItem(position).cardType=="Visa"){
+        if (getItem(position).cardtype=="Visa"){
             holder.icon.setImageResource(R.drawable.ic_icon_mastercard_logo)
         }else{
             holder.icon.setImageResource(R.drawable.ic_nationalcard)
         }
-        holder.type.text=getItem(position).cardType
-        holder.amount.text=getItem(position).amountCard
-        holder.bankName.text=getItem(position).bankName
-        holder.cardNumber.text=getItem(position).cardNumber
+        holder.type.text=getItem(position).cardtype
+        holder.amount.text=getItem(position).amount.toString()+" TJS"
+        holder.bankName.text=getItem(position).bankname
+        holder.cardNumber.text=getItem(position).cardnumber.substring(0,4)+"********"+getItem(position).cardnumber.substring(getItem(position).cardnumber.length-4,getItem(position).cardnumber.length)
     }
 
-    private class CardsDiffUtil:DiffUtil.ItemCallback<Cards>(){
-        override fun areItemsTheSame(oldItem: Cards, newItem: Cards): Boolean {
+    private class CardsDiffUtil:DiffUtil.ItemCallback<CardsRetrofit>(){
+        override fun areItemsTheSame(oldItem: CardsRetrofit, newItem: CardsRetrofit): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Cards, newItem: Cards): Boolean {
-            return oldItem.isSelected == newItem.isSelected
+        override fun areContentsTheSame(oldItem: CardsRetrofit, newItem: CardsRetrofit): Boolean {
+            return oldItem == newItem
         }
     }
 }

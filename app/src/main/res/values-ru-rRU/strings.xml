@@ -13,7 +13,7 @@
     <string name="balance">Баланс</string>
     <string name="cards">Привязанные карты</string>
     <string name="history">История</string>
-    <string name="transaction">Транзакция от</string>
+    <string name="transaction">Перевод от</string>
     <string name="fullName">Полное Имя</string>
     <string name="personal_info">Персональные данные</string>
     <string name="qr_text">QR Код</string>
@@ -42,4 +42,19 @@
     <string name="login_registration">Логин</string>
     <string name="succesful_tranfer">Ваши деньги успешно отправлены</string>
     <string name="change_language">Поменять язык</string>
+    <string name="bank_name">Название банка</string>
+    <string name="receiverTransaction">Получатель: </string>
+    <string name="payment_method">Способ оплаты:</string>
+    <string name="phoneNumber">Номер телефона (+992)</string>
+    <string name="dateOfBirth" >Дата рождения</string>
+    <string name="transaction_text" >Перевод</string>
+    <string name="transactionID">ID Перевода:</string>
+    <string name="help">Помощь</string>
+
+
+    <string-array name="CardType">
+        <item>Национальная</item>
+        <item>Visa</item>
+        <item>Master</item>
+    </string-array>
 </resources>
